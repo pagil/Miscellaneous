@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+     Messaging Destinations deployment descriptor.
+
+     $Id: destinations-service.xml 85945 2009-03-16 19:45:12Z dimitris@jboss.org $
+ -->
+
+<server>
+
+   <!--
+      The Default Dead Letter Queue. This destination is a dependency of an EJB MDB container.
+   -->
+
+   <mbean code="org.jboss.jms.server.destination.QueueService"
+      name="jboss.messaging.destination:service=Queue,name=DLQ"
+      xmbean-dd="xmdesc/Queue-xmbean.xml">
+      <depends optional-attribute-name="ServerPeer">jboss.messaging:service=ServerPeer</depends>
+      <depends>jboss.messaging:service=PostOffice</depends>
+   </mbean>
+   
+   <!--
+      The Default Expiry Queue.
+   -->
+
+   <mbean code="org.jboss.jms.server.destination.QueueService"
+      name="jboss.messaging.destination:service=Queue,name=ExpiryQueue"
+      xmbean-dd="xmdesc/Queue-xmbean.xml">
+      <depends optional-attribute-name="ServerPeer">jboss.messaging:service=ServerPeer</depends>
+      <depends>jboss.messaging:service=PostOffice</depends>
+   </mbean>   
+
+<!-- VEFIM: https://sites.google.com/a/thedevinfo.com/thedevinfo/Home/jboss/jboss-application-server/jboss-and-jms-java-message-service-tutorial -->   
+<!-- mbean code="org.jboss.mq.server.jmx.Topic"
+    name="jboss.messaging.destination:service=Topic,name=example">
+    <depends optional-attribute-name="DestinationManager">jboss.messaging:service=DestinationManager</depends>
+</mbean -->
+<!-- mbean code="org.jboss.mq.server.jmx.Topic"
+    name="jboss.mq.destination:service=Topic,name=example">
+    <depends optional-attribute-name="DestinationManager">
+        jboss.mq:service=DestinationManager</depends>
+</mbean --> 
+<mbean code="org.jboss.jms.server.destination.TopicService"
+ name="jboss.messaging.destination:service=Topic,name=example"
+ xmbean-dd="xmdesc/Topic-xmbean.xml">
+ <depends optional-attribute-name="ServerPeer">jboss.messaging:service=ServerPeer</depends>
+ <depends>jboss.messaging:service=PostOffice</depends>
+</mbean>
+<mbean code="org.jboss.jms.server.destination.QueueService"  
+      name="jboss.messaging.destination:service=Queue,name=MyQueue"  
+      xmbean-dd="xmdesc/Queue-xmbean.xml">   
+	  <!-- VEFIM: I do not know what 'annotation' is for. Thus i commented it. -->
+      <!-- annotation>@org.jboss.system.deployers.managed.ManagementObjectClass(code=org.jboss.jms.server.destination.QueueServiceMO)</annotation -->
+      <depends optional-attribute-name="ServerPeer">jboss.messaging:service=ServerPeer</depends>   
+      <depends>jboss.messaging:service=PostOffice</depends>   
+</mbean>
+
+<mbean code="org.jboss.jms.server.destination.QueueService"
+  name="jboss.messaging.destination:service=Queue,name=DelayedQueue"
+  xmbean-dd="xmdesc/Queue-xmbean.xml">
+  <depends optional-attribute-name="ServerPeer">jboss.messaging:service=ServerPeer</depends>
+  <depends>jboss.messaging:service=PostOffice</depends>
+</mbean> 
+</server>

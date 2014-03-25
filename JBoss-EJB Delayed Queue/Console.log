@@ -1,0 +1,396 @@
+03:00:19,765 INFO  [ServerImpl] Starting JBoss (Microcontainer)...
+03:00:19,765 INFO  [ServerImpl] Release ID: JBoss [The Oracle] 5.1.0.GA (build: SVNTag=JBoss_5_1_0_GA date=200905221634)
+03:00:19,765 INFO  [ServerImpl] Bootstrap URL: null
+03:00:19,765 INFO  [ServerImpl] Home Dir: D:\ProgramFiles\jboss-5.1.0.GA_eclipse
+03:00:19,765 INFO  [ServerImpl] Home URL: file:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/
+03:00:19,765 INFO  [ServerImpl] Library URL: file:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/lib/
+03:00:19,765 INFO  [ServerImpl] Patch URL: null
+03:00:19,765 INFO  [ServerImpl] Common Base URL: file:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/common/
+03:00:19,765 INFO  [ServerImpl] Common Library URL: file:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/common/lib/
+03:00:19,765 INFO  [ServerImpl] Server Name: all
+03:00:19,765 INFO  [ServerImpl] Server Base Dir: D:\ProgramFiles\jboss-5.1.0.GA_eclipse\server
+03:00:19,765 INFO  [ServerImpl] Server Base URL: file:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/server/
+03:00:19,765 INFO  [ServerImpl] Server Config URL: file:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/server/all/conf/
+03:00:19,765 INFO  [ServerImpl] Server Home Dir: D:\ProgramFiles\jboss-5.1.0.GA_eclipse\server\all
+03:00:19,765 INFO  [ServerImpl] Server Home URL: file:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/server/all/
+03:00:19,765 INFO  [ServerImpl] Server Data Dir: D:\ProgramFiles\jboss-5.1.0.GA_eclipse\server\all\data
+03:00:19,765 INFO  [ServerImpl] Server Library URL: file:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/server/all/lib/
+03:00:19,765 INFO  [ServerImpl] Server Log Dir: D:\ProgramFiles\jboss-5.1.0.GA_eclipse\server\all\log
+03:00:19,765 INFO  [ServerImpl] Server Native Dir: D:\ProgramFiles\jboss-5.1.0.GA_eclipse\server\all\tmp\native
+03:00:19,765 INFO  [ServerImpl] Server Temp Dir: D:\ProgramFiles\jboss-5.1.0.GA_eclipse\server\all\tmp
+03:00:19,765 INFO  [ServerImpl] Server Temp Deploy Dir: D:\ProgramFiles\jboss-5.1.0.GA_eclipse\server\all\tmp\deploy
+03:00:20,109 INFO  [ServerImpl] Starting Microcontainer, bootstrapURL=file:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/server/all/conf/bootstrap.xml
+03:00:20,405 INFO  [VFSCacheFactory] Initializing VFSCache [org.jboss.virtual.plugins.cache.CombinedVFSCache]
+03:00:20,405 INFO  [VFSCacheFactory] Using VFSCache [CombinedVFSCache[real-cache: null]]
+03:00:20,545 INFO  [CopyMechanism] VFS temp dir: D:\ProgramFiles\jboss-5.1.0.GA_eclipse\server\all\tmp
+03:00:20,545 INFO  [ZipEntryContext] VFS force nested jars copy-mode is enabled.
+03:00:21,029 INFO  [ServerInfo] Java version: 1.6.0_25,Sun Microsystems Inc.
+03:00:21,029 INFO  [ServerInfo] Java Runtime: Java(TM) SE Runtime Environment (build 1.6.0_25-b06)
+03:00:21,029 INFO  [ServerInfo] Java VM: Java HotSpot(TM) Client VM 20.0-b11,Sun Microsystems Inc.
+03:00:21,029 INFO  [ServerInfo] OS-System: Windows 7 6.1,x86
+03:00:21,029 INFO  [ServerInfo] VM arguments: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:64264 -Dprogram.name=JBossTools: JBoss 5.1 Runtime Eclipse All Server -Xms256m -Xmx768m -XX:MaxPermSize=256m -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -Djava.endorsed.dirs=D:\ProgramFiles\jboss-5.1.0.GA_eclipse\lib\endorsed -Dprocessing.server.url=http://172.20.110.13:4565/Baltica/httpadapter -Dinterval=10 -Dfile.encoding=UTF-8 
+03:00:21,061 INFO  [JMXKernel] Legacy JMX core initialized
+03:00:21,888 INFO  [ProfileServiceBootstrap] Loading profile: ProfileKey@1385846[domain=default, server=default, name=all]
+03:00:22,652 INFO  [WebService] Using RMI server codebase: http://vefimchik:8183/
+03:00:25,274 INFO  [NativeServerConfig] JBoss Web Services - Stack Native Core
+03:00:25,274 INFO  [NativeServerConfig] 3.1.2.GA
+03:00:25,650 INFO  [AttributeCallbackItem] Owner callback not implemented.
+03:00:26,383 INFO  [LogNotificationListener] Adding notification listener for logging mbean "jboss.system:service=Logging,type=Log4jService" to server org.jboss.mx.server.MBeanServerImpl@19fe5e6[ defaultDomain='jboss' ]
+03:00:55,041 INFO  [ContainerDependencyMetaData] addJndiDependency, JndiDependencyMetaData@2525d0{queue/DelayedQueue}
+03:00:56,774 INFO  [Ejb3DependenciesDeployer] Encountered deployment AbstractVFSDeploymentContext@30365417{vfsfile:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/server/all/deploy/JBoss-EJB%20Delayed%20Queue.jar/}
+03:00:56,774 INFO  [Ejb3DependenciesDeployer] Encountered deployment AbstractVFSDeploymentContext@30365417{vfsfile:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/server/all/deploy/JBoss-EJB%20Delayed%20Queue.jar/}
+03:00:56,774 INFO  [Ejb3DependenciesDeployer] Encountered deployment AbstractVFSDeploymentContext@30365417{vfsfile:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/server/all/deploy/JBoss-EJB%20Delayed%20Queue.jar/}
+03:00:56,774 INFO  [Ejb3DependenciesDeployer] Encountered deployment AbstractVFSDeploymentContext@30365417{vfsfile:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/server/all/deploy/JBoss-EJB%20Delayed%20Queue.jar/}
+03:00:56,789 INFO  [Ejb3DependenciesDeployer] Encountered deployment AbstractVFSDeploymentContext@13622965{vfsfile:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/server/all/deploy/profileservice-secured.jar/}
+03:00:56,789 INFO  [Ejb3DependenciesDeployer] Encountered deployment AbstractVFSDeploymentContext@13622965{vfsfile:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/server/all/deploy/profileservice-secured.jar/}
+03:00:56,789 INFO  [Ejb3DependenciesDeployer] Encountered deployment AbstractVFSDeploymentContext@13622965{vfsfile:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/server/all/deploy/profileservice-secured.jar/}
+03:00:56,789 INFO  [Ejb3DependenciesDeployer] Encountered deployment AbstractVFSDeploymentContext@13622965{vfsfile:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/server/all/deploy/profileservice-secured.jar/}
+03:00:57,414 INFO  [CorbaNamingService] CORBA Naming Started
+03:01:00,051 INFO  [JMXConnectorServerService] JMX Connector server: service:jmx:rmi://vefimchik/jndi/rmi://vefimchik:1190/jmxconnector
+03:01:00,192 INFO  [MailService] Mail Service bound to java:/Mail
+03:01:00,489 INFO  [SnmpAgentService] SNMP agent going active
+03:01:01,768 INFO  [DocsPartition] Initializing partition DocsPartition
+03:01:01,831 WARN  [UDP] failed to join /224.0.0.75:7500 on net4: java.net.SocketException: Unrecognized Windows Sockets error: 0: no Inet4Address associated with interface
+03:01:01,831 WARN  [UDP] failed to join /224.0.0.75:7500 on net5: java.net.SocketException: Unrecognized Windows Sockets error: 0: no Inet4Address associated with interface
+03:01:01,831 WARN  [UDP] failed to join /224.0.0.75:7500 on net6: java.net.SocketException: Unrecognized Windows Sockets error: 0: no Inet4Address associated with interface
+03:01:01,831 INFO  [STDOUT] 
+---------------------------------------------------------
+GMS: address is 10.99.54.48:61718 (cluster=DocsPartition)
+---------------------------------------------------------
+03:01:01,847 INFO  [PlatformMBeanServerRegistration] JBossCache MBeans were successfully registered to the platform mbean server.
+03:01:01,878 INFO  [STDOUT] 
+---------------------------------------------------------
+GMS: address is 10.99.54.48:61718 (cluster=DocsPartition-HAPartitionCache)
+---------------------------------------------------------
+03:01:03,859 INFO  [DocsPartition] Number of cluster members: 1
+03:01:03,859 INFO  [DocsPartition] Other members: 0
+03:01:03,891 INFO  [RPCManagerImpl] Received new cluster view: [10.99.54.48:61718|0] [10.99.54.48:61718]
+03:01:03,891 INFO  [RPCManagerImpl] Cache local address is 10.99.54.48:61718
+03:01:03,891 INFO  [RPCManagerImpl] state was retrieved successfully (in 2,01 seconds)
+03:01:03,907 INFO  [ComponentRegistry] JBoss Cache version: JBossCache 'Cascabel' 3.1.0.GA
+03:01:03,907 INFO  [DocsPartition] Fetching serviceState (will wait for 30000 milliseconds):
+03:01:03,907 INFO  [DocsPartition] State could not be retrieved (we are the first member in group)
+03:01:03,969 INFO  [HANamingService] Started HAJNDI bootstrap; jnpPort=1200, backlog=50, bindAddress=/0.0.0.0
+03:01:03,969 INFO  [DetachedHANamingService$AutomaticDiscovery] Listening on 0.0.0.0/0.0.0.0:1102, group=239.255.255.240, HA-JNDI address=10.99.54.48:1200
+03:01:04,406 INFO  [UnifiedInvokerHA] Service name is jboss:service=invoker,type=unifiedha
+03:01:05,748 WARN  [JBossASSecurityMetadataStore] WARNING! POTENTIAL SECURITY RISK. It has been detected that the MessageSucker component which sucks messages from one node to another has not had its password changed from the installation default. Please see the JBoss Messaging user guide for instructions on how to do this.
+03:01:05,763 WARN  [AnnotationCreator] No ClassLoader provided, using TCCL: org.jboss.managed.api.annotation.ManagementComponent
+03:01:05,827 WARN  [AnnotationCreator] No ClassLoader provided, using TCCL: org.jboss.managed.api.annotation.ManagementComponent
+03:01:05,858 INFO  [TransactionManagerService] JBossTS Transaction Service (JTA version - tag:JBOSSTS_4_6_1_GA) - JBoss Inc.
+03:01:05,858 INFO  [TransactionManagerService] Setting up property manager MBean and JMX layer
+03:01:05,952 INFO  [TransactionManagerService] Initializing recovery manager
+03:01:06,014 INFO  [TransactionManagerService] Recovery manager configured
+03:01:06,014 INFO  [TransactionManagerService] Binding TransactionManager JNDI Reference
+03:01:06,030 INFO  [TransactionManagerService] Starting transaction recovery manager
+03:01:06,279 INFO  [AprLifecycleListener] The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: D:\ProgramFiles\jdk1.6.0_25\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:\ProgramFiles\jdk1.6.0_25\jre\bin;native
+03:01:06,310 INFO  [Http11Protocol] Initializing Coyote HTTP/1.1 on http-0.0.0.0-8180
+03:01:06,310 INFO  [AjpProtocol] Initializing Coyote AJP/1.3 on ajp-0.0.0.0-8109
+03:01:06,326 INFO  [StandardService] Starting service jboss.web
+03:01:06,326 INFO  [StandardEngine] Starting Servlet Engine: JBoss Web/2.1.3.GA
+03:01:06,357 INFO  [Catalina] Server startup in 38 ms
+03:01:06,357 INFO  [TomcatDeployment] deploy, ctxPath=/web-console
+03:01:07,356 INFO  [TomcatDeployment] deploy, ctxPath=/jbossws
+03:01:07,371 INFO  [TomcatDeployment] deploy, ctxPath=/invoker
+03:01:07,403 INFO  [TomcatDeployment] deploy, ctxPath=/juddi
+03:01:07,419 INFO  [RegistryServlet] Loading jUDDI configuration.
+03:01:07,419 INFO  [RegistryServlet] Resources loaded from: /WEB-INF/juddi.properties
+03:01:07,419 INFO  [RegistryServlet] Initializing jUDDI components.
+03:01:07,559 INFO  [RARDeployment] Required license terms exist, view vfszip:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/server/all/deploy/jboss-local-jdbc.rar/META-INF/ra.xml
+03:01:07,559 INFO  [RARDeployment] Required license terms exist, view vfszip:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/server/all/deploy/jboss-xa-jdbc.rar/META-INF/ra.xml
+03:01:07,575 INFO  [RARDeployment] Required license terms exist, view vfszip:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/server/all/deploy/jms-ra.rar/META-INF/ra.xml
+03:01:07,591 INFO  [RARDeployment] Required license terms exist, view vfszip:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/server/all/deploy/mail-ra.rar/META-INF/ra.xml
+03:01:07,606 INFO  [RARDeployment] Required license terms exist, view vfszip:/D:/ProgramFiles/jboss-5.1.0.GA_eclipse/server/all/deploy/quartz-ra.rar/META-INF/ra.xml
+03:01:07,637 INFO  [SimpleThreadPool] Job execution threads will use class loader of thread: main
+03:01:07,669 INFO  [QuartzScheduler] Quartz Scheduler v.1.5.2 created.
+03:01:07,669 INFO  [RAMJobStore] RAMJobStore initialized.
+03:01:07,669 INFO  [StdSchedulerFactory] Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+03:01:07,669 INFO  [StdSchedulerFactory] Quartz scheduler version: 1.5.2
+03:01:07,669 INFO  [QuartzScheduler] Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+03:01:07,949 INFO  [ConnectionFactoryBindingService] Bound ConnectionManager 'jboss.jca:service=DataSourceBinding,name=DefaultDS' to JNDI name 'java:DefaultDS'
+03:01:08,636 INFO  [ServerPeer] JBoss Messaging 1.4.3.GA server [1] started
+03:01:08,777 INFO  [STDOUT] 
+---------------------------------------------------------
+GMS: address is 10.99.54.48:61718 (cluster=MessagingPostOffice-CTRL)
+---------------------------------------------------------
+03:01:10,790 INFO  [GroupMember] org.jboss.messaging.core.impl.postoffice.GroupMember$ControlMembershipListener@1a48776 got new view [10.99.54.48:61718|0] [10.99.54.48:61718], old view is null
+03:01:10,790 INFO  [GroupMember] I am (10.99.54.48:61718)
+03:01:10,790 INFO  [GroupMember] New Members : 1 ([10.99.54.48:61718])
+03:01:10,790 INFO  [GroupMember] All Members : 1 ([10.99.54.48:61718])
+03:01:10,853 WARN  [TCP] failed to join /224.0.0.75:7500 on net4: java.net.SocketException: Unrecognized Windows Sockets error: 0: no Inet4Address associated with interface
+03:01:10,853 WARN  [TCP] failed to join /224.0.0.75:7500 on net5: java.net.SocketException: Unrecognized Windows Sockets error: 0: no Inet4Address associated with interface
+03:01:10,853 WARN  [TCP] failed to join /224.0.0.75:7500 on net6: java.net.SocketException: Unrecognized Windows Sockets error: 0: no Inet4Address associated with interface
+03:01:10,853 INFO  [STDOUT] 
+---------------------------------------------------------
+GMS: address is 10.99.54.48:7900 (cluster=MessagingPostOffice-DATA)
+---------------------------------------------------------
+03:01:15,892 INFO  [QueueService] Queue[/queue/ExpiryQueue] started, fullSize=200000, pageSize=2000, downCacheSize=2000
+03:01:15,907 INFO  [QueueService] Queue[/queue/DelayedQueue] started, fullSize=200000, pageSize=2000, downCacheSize=2000
+03:01:16,127 WARN  [JBossASSecurityMetadataStore] WARNING! POTENTIAL SECURITY RISK. It has been detected that the MessageSucker component which sucks messages from one node to another has not had its password changed from the installation default. Please see the JBoss Messaging user guide for instructions on how to do this.
+03:01:16,376 INFO  [ConnectionFactory] Connector bisocket://vefimchik:4557 has leasing enabled, lease period 10000 milliseconds
+03:01:16,376 INFO  [ConnectionFactory] org.jboss.jms.server.connectionfactory.ConnectionFactory@2304b8 started
+03:01:16,376 INFO  [QueueService] Queue[/queue/DLQ] started, fullSize=200000, pageSize=2000, downCacheSize=2000
+03:01:16,392 INFO  [ConnectionFactory] Connector bisocket://vefimchik:4557 has leasing enabled, lease period 10000 milliseconds
+03:01:16,392 INFO  [ConnectionFactory] org.jboss.jms.server.connectionfactory.ConnectionFactory@13ed8e9 started
+03:01:16,392 INFO  [ConnectionFactory] Connector bisocket://vefimchik:4557 has leasing enabled, lease period 10000 milliseconds
+03:01:16,392 INFO  [ConnectionFactory] org.jboss.jms.server.connectionfactory.ConnectionFactory@1a801ba started
+03:01:16,454 INFO  [ConnectionFactoryBindingService] Bound ConnectionManager 'jboss.jca:service=ConnectionFactoryBinding,name=JmsXA' to JNDI name 'java:JmsXA'
+03:01:16,673 INFO  [JBossASKernel] Created KernelDeployment for: JBoss-EJB Delayed Queue.jar
+03:01:16,673 INFO  [JBossASKernel] installing bean: jboss.j2ee:jar=JBoss-EJB Delayed Queue.jar,name=JMSListener,service=EJB3
+03:01:16,673 INFO  [JBossASKernel]   with dependencies:
+03:01:16,673 INFO  [JBossASKernel]   and demands:
+03:01:16,673 INFO  [JBossASKernel]  jboss.ejb:service=EJBTimerService
+03:01:16,673 INFO  [JBossASKernel]   and supplies:
+03:01:16,673 INFO  [JBossASKernel]  jndi:null
+03:01:16,673 INFO  [JBossASKernel]  Class:javax.jms.MessageListener
+03:01:16,673 INFO  [JBossASKernel] Added bean(jboss.j2ee:jar=JBoss-EJB Delayed Queue.jar,name=JMSListener,service=EJB3) to KernelDeployment of: JBoss-EJB Delayed Queue.jar
+03:01:16,673 INFO  [JBossASKernel] installing bean: jboss.j2ee:jar=JBoss-EJB Delayed Queue.jar,name=JMSProducer,service=EJB3
+03:01:16,673 INFO  [JBossASKernel]   with dependencies:
+03:01:16,673 INFO  [JBossASKernel]   and demands:
+03:01:16,673 INFO  [JBossASKernel]  jboss.ejb:service=EJBTimerService
+03:01:16,688 INFO  [JBossASKernel]   and supplies:
+03:01:16,688 INFO  [JBossASKernel]  jndi:JMSProducer/remote
+03:01:16,688 INFO  [JBossASKernel]  jndi:JMSProducer/local-com.producer.JMSProducerLocal
+03:01:16,688 INFO  [JBossASKernel]  Class:com.producer.JMSProducerLocal
+03:01:16,688 INFO  [JBossASKernel]  jndi:JMSProducer/local
+03:01:16,688 INFO  [JBossASKernel] Added bean(jboss.j2ee:jar=JBoss-EJB Delayed Queue.jar,name=JMSProducer,service=EJB3) to KernelDeployment of: JBoss-EJB Delayed Queue.jar
+03:01:16,688 INFO  [JBossASKernel] installing bean: jboss.j2ee:jar=JBoss-EJB Delayed Queue.jar,name=TimerService,service=EJB3
+03:01:16,688 INFO  [JBossASKernel]   with dependencies:
+03:01:16,688 INFO  [JBossASKernel]   and demands:
+03:01:16,688 INFO  [JBossASKernel]  jboss.ejb:service=EJBTimerService
+03:01:16,688 INFO  [JBossASKernel]  jndi:JMSProducer/local-com.producer.JMSProducerLocal
+03:01:16,688 INFO  [JBossASKernel]   and supplies:
+03:01:16,688 INFO  [JBossASKernel]  jndi:null
+03:01:16,688 INFO  [JBossASKernel]  Class:org.quartz.Job
+03:01:16,688 INFO  [JBossASKernel] Added bean(jboss.j2ee:jar=JBoss-EJB Delayed Queue.jar,name=TimerService,service=EJB3) to KernelDeployment of: JBoss-EJB Delayed Queue.jar
+03:01:16,688 INFO  [EJB3EndpointDeployer] Deploy AbstractBeanMetaData@bd11c4{name=jboss.j2ee:jar=JBoss-EJB Delayed Queue.jar,name=JMSProducer,service=EJB3_endpoint bean=org.jboss.ejb3.endpoint.deployers.impl.EndpointImpl properties=[container] constructor=null autowireCandidate=true}
+03:01:16,735 INFO  [EJBContainer] STARTED EJB: com.consumer.JMSListener ejbName: JMSListener
+03:01:16,829 INFO  [SessionSpecContainer] Starting jboss.j2ee:jar=JBoss-EJB Delayed Queue.jar,name=JMSProducer,service=EJB3
+03:01:16,844 INFO  [EJBContainer] STARTED EJB: com.producer.JMSProducer ejbName: JMSProducer
+03:01:16,891 INFO  [JndiSessionRegistrarBase] Binding the following Entries in Global JNDI:
+
+    JMSProducer/local - EJB3.x Default Local Business Interface
+    JMSProducer/local-com.producer.JMSProducerLocal - EJB3.x Local Business Interface
+
+03:01:16,922 INFO  [EJBContainer] STARTED EJB: com.scheduler.TimerService ejbName: TimerService
+03:01:17,017 INFO  [JBossASKernel] Created KernelDeployment for: profileservice-secured.jar
+03:01:17,017 INFO  [JBossASKernel] installing bean: jboss.j2ee:jar=profileservice-secured.jar,name=SecureProfileService,service=EJB3
+03:01:17,017 INFO  [JBossASKernel]   with dependencies:
+03:01:17,017 INFO  [JBossASKernel]   and demands:
+03:01:17,017 INFO  [JBossASKernel]  jndi:SecureManagementView/remote-org.jboss.deployers.spi.management.ManagementView
+03:01:17,017 INFO  [JBossASKernel]  jboss.ejb:service=EJBTimerService
+03:01:17,017 INFO  [JBossASKernel]   and supplies:
+03:01:17,017 INFO  [JBossASKernel]  Class:org.jboss.profileservice.spi.ProfileService
+03:01:17,017 INFO  [JBossASKernel]  jndi:SecureProfileService/remote
+03:01:17,017 INFO  [JBossASKernel]  jndi:SecureProfileService/remote-org.jboss.profileservice.spi.ProfileService
+03:01:17,017 INFO  [JBossASKernel] Added bean(jboss.j2ee:jar=profileservice-secured.jar,name=SecureProfileService,service=EJB3) to KernelDeployment of: profileservice-secured.jar
+03:01:17,017 INFO  [JBossASKernel] installing bean: jboss.j2ee:jar=profileservice-secured.jar,name=SecureDeploymentManager,service=EJB3
+03:01:17,017 INFO  [JBossASKernel]   with dependencies:
+03:01:17,017 INFO  [JBossASKernel]   and demands:
+03:01:17,017 INFO  [JBossASKernel]  jboss.ejb:service=EJBTimerService
+03:01:17,017 INFO  [JBossASKernel]   and supplies:
+03:01:17,017 INFO  [JBossASKernel]  jndi:SecureDeploymentManager/remote-org.jboss.deployers.spi.management.deploy.DeploymentManager
+03:01:17,017 INFO  [JBossASKernel]  Class:org.jboss.deployers.spi.management.deploy.DeploymentManager
+03:01:17,017 INFO  [JBossASKernel]  jndi:SecureDeploymentManager/remote
+03:01:17,017 INFO  [JBossASKernel] Added bean(jboss.j2ee:jar=profileservice-secured.jar,name=SecureDeploymentManager,service=EJB3) to KernelDeployment of: profileservice-secured.jar
+03:01:17,017 INFO  [JBossASKernel] installing bean: jboss.j2ee:jar=profileservice-secured.jar,name=SecureManagementView,service=EJB3
+03:01:17,017 INFO  [JBossASKernel]   with dependencies:
+03:01:17,017 INFO  [JBossASKernel]   and demands:
+03:01:17,017 INFO  [JBossASKernel]  jboss.ejb:service=EJBTimerService
+03:01:17,017 INFO  [JBossASKernel]   and supplies:
+03:01:17,017 INFO  [JBossASKernel]  jndi:SecureManagementView/remote-org.jboss.deployers.spi.management.ManagementView
+03:01:17,017 INFO  [JBossASKernel]  Class:org.jboss.deployers.spi.management.ManagementView
+03:01:17,017 INFO  [JBossASKernel]  jndi:SecureManagementView/remote
+03:01:17,017 INFO  [JBossASKernel] Added bean(jboss.j2ee:jar=profileservice-secured.jar,name=SecureManagementView,service=EJB3) to KernelDeployment of: profileservice-secured.jar
+03:01:17,017 INFO  [EJB3EndpointDeployer] Deploy AbstractBeanMetaData@93549a{name=jboss.j2ee:jar=profileservice-secured.jar,name=SecureProfileService,service=EJB3_endpoint bean=org.jboss.ejb3.endpoint.deployers.impl.EndpointImpl properties=[container] constructor=null autowireCandidate=true}
+03:01:17,017 INFO  [EJB3EndpointDeployer] Deploy AbstractBeanMetaData@b91a50{name=jboss.j2ee:jar=profileservice-secured.jar,name=SecureDeploymentManager,service=EJB3_endpoint bean=org.jboss.ejb3.endpoint.deployers.impl.EndpointImpl properties=[container] constructor=null autowireCandidate=true}
+03:01:17,017 INFO  [EJB3EndpointDeployer] Deploy AbstractBeanMetaData@13d3b95{name=jboss.j2ee:jar=profileservice-secured.jar,name=SecureManagementView,service=EJB3_endpoint bean=org.jboss.ejb3.endpoint.deployers.impl.EndpointImpl properties=[container] constructor=null autowireCandidate=true}
+03:01:17,095 INFO  [SessionSpecContainer] Starting jboss.j2ee:jar=profileservice-secured.jar,name=SecureDeploymentManager,service=EJB3
+03:01:17,095 INFO  [EJBContainer] STARTED EJB: org.jboss.profileservice.ejb.SecureDeploymentManager ejbName: SecureDeploymentManager
+03:01:17,111 INFO  [JndiSessionRegistrarBase] Binding the following Entries in Global JNDI:
+
+    SecureDeploymentManager/remote - EJB3.x Default Remote Business Interface
+    SecureDeploymentManager/remote-org.jboss.deployers.spi.management.deploy.DeploymentManager - EJB3.x Remote Business Interface
+
+03:01:17,142 INFO  [SessionSpecContainer] Starting jboss.j2ee:jar=profileservice-secured.jar,name=SecureManagementView,service=EJB3
+03:01:17,142 INFO  [EJBContainer] STARTED EJB: org.jboss.profileservice.ejb.SecureManagementView ejbName: SecureManagementView
+03:01:17,157 INFO  [JndiSessionRegistrarBase] Binding the following Entries in Global JNDI:
+
+    SecureManagementView/remote - EJB3.x Default Remote Business Interface
+    SecureManagementView/remote-org.jboss.deployers.spi.management.ManagementView - EJB3.x Remote Business Interface
+
+03:01:17,189 INFO  [SessionSpecContainer] Starting jboss.j2ee:jar=profileservice-secured.jar,name=SecureProfileService,service=EJB3
+03:01:17,189 INFO  [EJBContainer] STARTED EJB: org.jboss.profileservice.ejb.SecureProfileServiceBean ejbName: SecureProfileService
+03:01:17,204 INFO  [JndiSessionRegistrarBase] Binding the following Entries in Global JNDI:
+
+    SecureProfileService/remote - EJB3.x Default Remote Business Interface
+    SecureProfileService/remote-org.jboss.profileservice.spi.ProfileService - EJB3.x Remote Business Interface
+
+03:01:17,267 INFO  [TomcatDeployment] deploy, ctxPath=/admin-console
+03:01:17,797 INFO  [config] Initializing Mojarra (1.2_12-b01-FCS) for context '/admin-console'
+03:01:19,248 INFO  [TomcatDeployment] deploy, ctxPath=/
+03:01:19,280 INFO  [TomcatDeployment] deploy, ctxPath=/jmx-console
+03:01:19,358 INFO  [Http11Protocol] Starting Coyote HTTP/1.1 on http-0.0.0.0-8180
+03:01:19,374 INFO  [AjpProtocol] Starting Coyote AJP/1.3 on ajp-0.0.0.0-8109
+03:01:19,374 INFO  [ServerImpl] JBoss (Microcontainer) [5.1.0.GA (build: SVNTag=JBoss_5_1_0_GA date=200905221634)] Started in 59s:609ms
+03:01:30,060 WARN  [InterceptorsFactory] EJBTHREE-1246: Do not use InterceptorsFactory with a ManagedObjectAdvisor, InterceptorRegistry should be used via the bean container
+03:01:30,060 WARN  [InterceptorsFactory] EJBTHREE-1246: Do not use InterceptorsFactory with a ManagedObjectAdvisor, InterceptorRegistry should be used via the bean container
+03:01:30,075 INFO  [STDOUT] 
+>>>>>> TimerService >>>>>>
+ Executing Job: Mon Jun 25 03:01:30 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:01:30,075 WARN  [InterceptorsFactory] EJBTHREE-1246: Do not use InterceptorsFactory with a ManagedObjectAdvisor, InterceptorRegistry should be used via the bean container
+03:01:30,075 WARN  [InterceptorsFactory] EJBTHREE-1246: Do not use InterceptorsFactory with a ManagedObjectAdvisor, InterceptorRegistry should be used via the bean container
+03:01:30,185 INFO  [STDOUT] 
+>>>>>> JMSProducer >>>>>>
+ "Message #0" sent Mon Jun 25 03:01:30 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:01:42,213 WARN  [InterceptorsFactory] EJBTHREE-1246: Do not use InterceptorsFactory with a ManagedObjectAdvisor, InterceptorRegistry should be used via the bean container
+03:01:42,213 WARN  [InterceptorsFactory] EJBTHREE-1246: Do not use InterceptorsFactory with a ManagedObjectAdvisor, InterceptorRegistry should be used via the bean container
+03:01:42,213 INFO  [STDOUT] 
+>>>>> JMSListener >>>>>>
+ "Message #0"  received Mon Jun 25 03:01:42 VET 2012
+<<<<<<<<<<<<<<<<<<<<<
+03:02:00,014 INFO  [STDOUT] 
+>>>>>> TimerService >>>>>>
+ Executing Job: Mon Jun 25 03:02:00 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:02:00,029 INFO  [STDOUT] 
+>>>>>> JMSProducer >>>>>>
+ "Message #1" sent Mon Jun 25 03:02:00 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:02:12,042 INFO  [STDOUT] 
+>>>>> JMSListener >>>>>>
+ "Message #1"  received Mon Jun 25 03:02:12 VET 2012
+<<<<<<<<<<<<<<<<<<<<<
+03:02:30,014 INFO  [STDOUT] 
+>>>>>> TimerService >>>>>>
+ Executing Job: Mon Jun 25 03:02:30 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:02:30,030 INFO  [STDOUT] 
+>>>>>> JMSProducer >>>>>>
+ "Message #2" sent Mon Jun 25 03:02:30 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:02:42,043 INFO  [STDOUT] 
+>>>>> JMSListener >>>>>>
+ "Message #2"  received Mon Jun 25 03:02:42 VET 2012
+<<<<<<<<<<<<<<<<<<<<<
+03:03:00,015 INFO  [STDOUT] 
+>>>>>> TimerService >>>>>>
+ Executing Job: Mon Jun 25 03:03:00 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:03:00,031 INFO  [STDOUT] 
+>>>>>> JMSProducer >>>>>>
+ "Message #3" sent Mon Jun 25 03:03:00 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:03:12,044 INFO  [STDOUT] 
+>>>>> JMSListener >>>>>>
+ "Message #3"  received Mon Jun 25 03:03:12 VET 2012
+<<<<<<<<<<<<<<<<<<<<<
+03:03:30,016 INFO  [STDOUT] 
+>>>>>> TimerService >>>>>>
+ Executing Job: Mon Jun 25 03:03:30 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:03:30,032 INFO  [STDOUT] 
+>>>>>> JMSProducer >>>>>>
+ "Message #4" sent Mon Jun 25 03:03:30 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:03:42,045 INFO  [STDOUT] 
+>>>>> JMSListener >>>>>>
+ "Message #4"  received Mon Jun 25 03:03:42 VET 2012
+<<<<<<<<<<<<<<<<<<<<<
+03:04:00,014 INFO  [STDOUT] 
+>>>>>> TimerService >>>>>>
+ Executing Job: Mon Jun 25 03:04:00 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:04:00,030 INFO  [STDOUT] 
+>>>>>> JMSProducer >>>>>>
+ "Message #5" sent Mon Jun 25 03:04:00 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:04:12,043 INFO  [STDOUT] 
+>>>>> JMSListener >>>>>>
+ "Message #5"  received Mon Jun 25 03:04:12 VET 2012
+<<<<<<<<<<<<<<<<<<<<<
+03:04:30,016 INFO  [STDOUT] 
+>>>>>> TimerService >>>>>>
+ Executing Job: Mon Jun 25 03:04:30 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:04:30,032 INFO  [STDOUT] 
+>>>>>> JMSProducer >>>>>>
+ "Message #6" sent Mon Jun 25 03:04:30 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:04:42,045 INFO  [STDOUT] 
+>>>>> JMSListener >>>>>>
+ "Message #6"  received Mon Jun 25 03:04:42 VET 2012
+<<<<<<<<<<<<<<<<<<<<<
+03:05:00,017 INFO  [STDOUT] 
+>>>>>> TimerService >>>>>>
+ Executing Job: Mon Jun 25 03:05:00 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:05:00,033 INFO  [STDOUT] 
+>>>>>> JMSProducer >>>>>>
+ "Message #7" sent Mon Jun 25 03:05:00 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:05:12,046 INFO  [STDOUT] 
+>>>>> JMSListener >>>>>>
+ "Message #7"  received Mon Jun 25 03:05:12 VET 2012
+<<<<<<<<<<<<<<<<<<<<<
+03:05:30,018 INFO  [STDOUT] 
+>>>>>> TimerService >>>>>>
+ Executing Job: Mon Jun 25 03:05:30 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:05:30,034 INFO  [STDOUT] 
+>>>>>> JMSProducer >>>>>>
+ "Message #8" sent Mon Jun 25 03:05:30 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:05:42,047 INFO  [STDOUT] 
+>>>>> JMSListener >>>>>>
+ "Message #8"  received Mon Jun 25 03:05:42 VET 2012
+<<<<<<<<<<<<<<<<<<<<<
+03:06:00,019 INFO  [STDOUT] 
+>>>>>> TimerService >>>>>>
+ Executing Job: Mon Jun 25 03:06:00 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:06:00,034 INFO  [STDOUT] 
+>>>>>> JMSProducer >>>>>>
+ "Message #9" sent Mon Jun 25 03:06:00 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:06:12,048 INFO  [STDOUT] 
+>>>>> JMSListener >>>>>>
+ "Message #9"  received Mon Jun 25 03:06:12 VET 2012
+<<<<<<<<<<<<<<<<<<<<<
+03:06:30,020 INFO  [STDOUT] 
+>>>>>> TimerService >>>>>>
+ Executing Job: Mon Jun 25 03:06:30 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:06:30,035 INFO  [STDOUT] 
+>>>>>> JMSProducer >>>>>>
+ "Message #10" sent Mon Jun 25 03:06:30 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:06:42,048 INFO  [STDOUT] 
+>>>>> JMSListener >>>>>>
+ "Message #10"  received Mon Jun 25 03:06:42 VET 2012
+<<<<<<<<<<<<<<<<<<<<<
+03:07:00,021 INFO  [STDOUT] 
+>>>>>> TimerService >>>>>>
+ Executing Job: Mon Jun 25 03:07:00 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:07:00,036 INFO  [STDOUT] 
+>>>>>> JMSProducer >>>>>>
+ "Message #11" sent Mon Jun 25 03:07:00 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:07:12,049 INFO  [STDOUT] 
+>>>>> JMSListener >>>>>>
+ "Message #11"  received Mon Jun 25 03:07:12 VET 2012
+<<<<<<<<<<<<<<<<<<<<<
+03:07:30,021 INFO  [STDOUT] 
+>>>>>> TimerService >>>>>>
+ Executing Job: Mon Jun 25 03:07:30 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:07:30,037 INFO  [STDOUT] 
+>>>>>> JMSProducer >>>>>>
+ "Message #12" sent Mon Jun 25 03:07:30 VET 2012 
+<<<<<<<<<<<<<<<<<<<<<<<<<
+03:07:42,050 INFO  [STDOUT] 
+>>>>> JMSListener >>>>>>
+ "Message #12"  received Mon Jun 25 03:07:42 VET 2012
+<<<<<<<<<<<<<<<<<<<<<
