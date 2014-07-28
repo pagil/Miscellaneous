@@ -50,9 +50,41 @@ public class ProcessDocTest {
     }
 
     @Test
+    public void testNullPrice1() {
+        DBObject object = new BasicDBObject("UT_TRIP_START_TOLL_POINT_ID", "3A");
+        object.put("SPEED", "34.57");
+        Assert.assertFalse(AvgByDay.processDoc(object));
+    }
+
+    @Test
+    public void testNullPrice2() {
+        DBObject object = new BasicDBObject("UT_TRIP_START_TOLL_POINT_ID", "3A");
+        object.put("SPEED", "34.57");
+        object.put("PRICE", null);
+        Assert.assertFalse(AvgByDay.processDoc(object));
+    }
+
+    @Test
+    public void testEmptyPrice() {
+        DBObject object = new BasicDBObject("UT_TRIP_START_TOLL_POINT_ID", "3A");
+        object.put("SPEED", "34.57");
+        object.put("PRICE", "");
+        Assert.assertFalse(AvgByDay.processDoc(object));
+    }
+
+    @Test
+    public void testNaNPrice() {
+        DBObject object = new BasicDBObject("UT_TRIP_START_TOLL_POINT_ID", "3A");
+        object.put("SPEED", "34.57");
+        object.put("PRICE", "NaN");
+        Assert.assertFalse(AvgByDay.processDoc(object));
+    }
+
+    @Test
     public void testSuccessCase() {
         DBObject object = new BasicDBObject("UT_TRIP_START_TOLL_POINT_ID", "3A");
         object.put("SPEED", "34.57");
+        object.put("PRICE", "34.57");
         Assert.assertTrue(AvgByDay.processDoc(object));
     }
 

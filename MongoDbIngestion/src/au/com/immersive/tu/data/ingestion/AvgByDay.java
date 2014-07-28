@@ -74,6 +74,7 @@ public class AvgByDay {
                 out.println(key.toString() + vo.toString());
                 persistDataToMongoDb(key, vo, db);
             }
+            System.out.printf("Map size for time slot %d : %d successfully processed.\n", i, map.size());
             out.flush();
             map = null;
         }
@@ -94,8 +95,18 @@ public class AvgByDay {
         if (!result) {
             return result;
         }
-        // "NaN".equalsIgnoreCase(obj.toString())
         Double doubleValue = Double.parseDouble(obj.toString());
+        result = doubleValue > 0.0;
+        if (!result) {
+            return result;
+        }
+
+        obj = value.get("PRICE");
+        result = obj == null ? false : !obj.toString().isEmpty();
+        if (!result) {
+            return result;
+        }
+        doubleValue = Double.parseDouble(obj.toString());
 
         return (doubleValue > 0.0);
     }
