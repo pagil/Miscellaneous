@@ -124,13 +124,9 @@ public class AvgByDay {
 
     private static void updateValueObject(AverageValueObject vo, DBObject dbObject) {
         vo.setTotalVolume(vo.getTotalVolume() + 1);
-        double speed = Double
-                .parseDouble(dbObject.get("SPEED") == null || dbObject.get("SPEED").toString().isEmpty() ? "0.0"
-                        : dbObject.get("SPEED").toString());
+        double speed = Double.parseDouble(dbObject.get("SPEED").toString());
         vo.setSpeed(vo.getSpeed() + speed);
-        double price = Double
-                .parseDouble(dbObject.get("PRICE") == null || dbObject.get("PRICE").toString().isEmpty() ? "0.0"
-                        : dbObject.get("PRICE").toString());
+        double price = Double.parseDouble(dbObject.get("PRICE").toString());
         vo.setPrice(vo.getPrice() + price);
     }
 
