@@ -22,37 +22,40 @@ public class AvgByDay {
     private static final String LOG_FILE_NAME = "C:\\Users\\vyafimchyk.IMMERSIVE\\Desktop\\Transurban - FORECAST\\AvgByDay.log";
     private static final String PROD_SERVER = "192.168.10.114";
     public static final int NUMBER_OF_SLOTS = 96;
-    private static final String TARGET_COLLECTION = "AVERAGE_VYAFIMCHYK";
+    private static final String CASTTRIP_COLLECTION_NAME = "CASTTRIP";
+    private static DBCollection CASTTRIP_COLLECTION;
+    private static final String TARGET_COLLECTION_NAME = "AVERAGE_VYAFIMCHYK";
+    private static DBCollection TARGET_COLLECTION;
+
     private static PrintWriter out = null;
 
     public static void main(String[] args) throws Exception {
         MongoClient mongoClient = new MongoClient(PROD_SERVER);
         DB db = mongoClient.getDB("TU");
+        CASTTRIP_COLLECTION = db.getCollection(CASTTRIP_COLLECTION_NAME);
+        TARGET_COLLECTION = db.getCollection(TARGET_COLLECTION_NAME);
         long startTime = 0;
         out = new PrintWriter(LOG_FILE_NAME);
-        System.out.println("-Duser.timezone = " + System.getProperty("user.timezone"));
-        out.println("-Duser.timezone = " + System.getProperty("user.timezone"));
-        System.out.println("Start time = " + (startTime = System.currentTimeMillis()));
-        out.println("Start time = " + (startTime = System.currentTimeMillis()));
+        log("-Duser.timezone = " + System.getProperty("user.timezone"));
+        log("Start time = " + (startTime = System.currentTimeMillis()));
         for (int i = 0; i < NUMBER_OF_SLOTS; i++) {
 
             // System.out.println("Start time = " + (startTime = System.currentTimeMillis()));
             List<DBObject> list = getDataFromCASTTRIP(i, db);
-            System.out.printf("List size for time slot %d : %d \n", i, list.size());
-            out.printf("List size for time slot %d : %d \n", i, list.size());
+            log("List size for time slot %d : %d \n", i, list.size());
             Map<AverageKey, AverageValueObject> map = new HashMap<AverageKey, AverageValueObject>();
             for (DBObject value : list) {
                 // System.out.println(value);
-                if (value.get("ENTITY") != null && !value.get("ENTITY").toString().isEmpty()) {
+                if (processDoc(value)) {
 
                     int timeSlot = Integer.parseInt(value.get("TIMESLOT").toString());
-                    String entity = value.get("ENTITY").toString();
+                    String startTollPointID = value.get("UT_TRIP_START_TOLL_POINT_ID").toString();
                     long dateTime = Long.parseLong(value.get("TIMESLOT_DATE").toString());
                     LocalDate date = new LocalDate(dateTime);
                     // System.out.println(date + " | " + date.dayOfWeek().getAsText() + " | " + date.dayOfWeek().get());
                     int dayOfWeek = date.dayOfWeek().get() - 1;
 
-                    AverageKey key = new AverageKey(timeSlot, entity, dayOfWeek);
+                    AverageKey key = new AverageKey(timeSlot, startTollPointID, dayOfWeek);
                     AverageValueObject vo = null;
                     if (map.containsKey(key)) {
                         vo = map.get(key);
@@ -63,8 +66,7 @@ public class AvgByDay {
                     updateValueObject(vo, value);
                 }
             }
-            System.out.printf("Map size for time slot %d : %d\n", i, map.size());
-            out.printf("Map size for time slot %d : %d\n", i, map.size());
+            log("Map size for time slot %d : %d\n", i, map.size());
             for (Map.Entry<AverageKey, AverageValueObject> entry : map.entrySet()) {
                 AverageKey key = entry.getKey();
                 AverageValueObject vo = entry.getValue();
@@ -75,17 +77,49 @@ public class AvgByDay {
             out.flush();
             map = null;
         }
-        System.out.println("Time spent for calculation = " + (System.currentTimeMillis() - startTime));
-        out.println("Time spent for calculation = " + (System.currentTimeMillis() - startTime));
+        log("Time spent for calculation = " + (System.currentTimeMillis() - startTime));
         out.close();
     }
 
+    public static boolean processDoc(DBObject value) {
+        // @formatter:off
+        boolean result = value.get("UT_TRIP_START_TOLL_POINT_ID") != null && !value.get("UT_TRIP_START_TOLL_POINT_ID").toString().isEmpty();
+        // @formatter:on
+        if (!result) {
+            return result;
+        }
+
+        Object obj = value.get("SPEED");
+        result = obj == null ? false : !obj.toString().isEmpty();
+        if (!result) {
+            return result;
+        }
+        // "NaN".equalsIgnoreCase(obj.toString())
+        Double doubleValue = Double.parseDouble(obj.toString());
+
+        return (doubleValue > 0.0);
+    }
+
+    private static void log(String str) {
+        System.out.println(str);
+        out.println(str);
+    }
+
+    private static void log(String format, Object... args) {
+        System.out.printf(format, args);
+        out.printf(format, args);
+    }
+
     private static void persistDataToMongoDb(AverageKey key, AverageValueObject vo, DB db) {
-        DBCollection coll = db.getCollection(TARGET_COLLECTION);
-        BasicDBObject doc = new BasicDBObject("TIMESLOT", key.getTimeSlot()).append("ENTITY", key.getTollPoint())
-                .append("DAY_OF_WEEK", key.getDayOfWeek()).append("AVERAGE_SPEED", vo.getSpeed() / vo.getTotalVolume())
-                .append("REVENUE", vo.getPrice()).append("VOLUME", vo.getTotalVolume());
-        coll.insert(doc);
+        // @formatter:off
+        BasicDBObject doc = new BasicDBObject("TIMESLOT", key.getTimeSlot())
+                .append("UT_TRIP_START_TOLL_POINT_ID", key.getTollPoint())
+                .append("DAY_OF_WEEK", key.getDayOfWeek())
+                .append("AVERAGE_SPEED", vo.getSpeed() / vo.getTotalVolume())
+                .append("REVENUE", vo.getPrice())
+                .append("VOLUME", vo.getTotalVolume());
+        // @formatter:on
+        TARGET_COLLECTION.insert(doc);
     }
 
     private static void updateValueObject(AverageValueObject vo, DBObject dbObject) {
@@ -104,15 +138,15 @@ public class AvgByDay {
         BasicDBObject query = new BasicDBObject("TIMESLOT", new BasicDBObject("$eq", timeSlot));
         BasicDBObject selectedFields = new BasicDBObject();
         selectedFields.append("_id", 1);
-        selectedFields.append("ENTITY", 1);
+        selectedFields.append("UT_TRIP_START_TOLL_POINT_ID", 1);
         selectedFields.append("TIMESLOT", 1);
         selectedFields.append("SPEED", 1);
         selectedFields.append("PRICE", 1);
         selectedFields.append("TIMESLOT_DATE", 1);
 
         // db.INCIDENT.find({ $and: [ {DETECTEDTIME: {$gt: 1383211730000}}, {DETECTEDTIME: {$lt: 1383211750000}}]})
-        DBCollection coll = db.getCollection("CASTTRIP");
-        DBCursor cursor = coll.find(query, selectedFields);
+
+        DBCursor cursor = CASTTRIP_COLLECTION.find(query, selectedFields);
 
         return cursor.toArray();
     }

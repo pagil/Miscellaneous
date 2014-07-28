@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="lib/guava-17.0.jar"/>
 	<classpathentry kind="lib" path="lib/google-collections.jar"/>
 	<classpathentry kind="lib" path="lib/mongo-java-driver-2.12.2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
