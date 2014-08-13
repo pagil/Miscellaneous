@@ -2,7 +2,9 @@ package au.com.immersive.tu.data;
 
 public class AverageValueObject {
     double price;
+    long priceCounter;
     double speed;
+    long speedCounter;
     long totalVolume;
 
     public double getPrice() {
@@ -29,9 +31,26 @@ public class AverageValueObject {
         this.totalVolume = totalVolume;
     }
 
+    public long getPriceCounter() {
+        return priceCounter;
+    }
+
+    public void setPriceCounter(long priceCounter) {
+        this.priceCounter = priceCounter;
+    }
+
+    public long getSpeedCounter() {
+        return speedCounter;
+    }
+
+    public void setSpeedCounter(long speedCounter) {
+        this.speedCounter = speedCounter;
+    }
+
     @Override
     public String toString() {
-        return "AverageValueObject [price=" + price + ", speed=" + speed + ", totalVolume=" + totalVolume + "]";
+        return "AverageValueObject [price=" + price + ", priceCounter=" + priceCounter + ", speed=" + speed
+                + ", speedCounter=" + speedCounter + ", totalVolume=" + totalVolume + "]";
     }
 
 }

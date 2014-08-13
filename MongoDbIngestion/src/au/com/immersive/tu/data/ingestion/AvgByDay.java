@@ -24,7 +24,8 @@ public class AvgByDay {
     public static final int NUMBER_OF_SLOTS = 96;
     private static final String CASTTRIP_COLLECTION_NAME = "CASTTRIP";
     private static DBCollection CASTTRIP_COLLECTION;
-    private static final String TARGET_COLLECTION_NAME = "AVERAGE_VYAFIMCHYK";
+    private static final String TARGET_COLLECTION_NAME = "AVERAGE_NEW";
+    private static final int AMOUNT_OF_DAYS_OF_WEEK = 13;
     private static DBCollection TARGET_COLLECTION;
 
     private static PrintWriter out = null;
@@ -40,19 +41,16 @@ public class AvgByDay {
         log("Start time = " + (startTime = System.currentTimeMillis()));
         for (int i = 0; i < NUMBER_OF_SLOTS; i++) {
 
-            // System.out.println("Start time = " + (startTime = System.currentTimeMillis()));
             List<DBObject> list = getDataFromCASTTRIP(i, db);
             log("List size for time slot %d : %d \n", i, list.size());
             Map<AverageKey, AverageValueObject> map = new HashMap<AverageKey, AverageValueObject>();
             for (DBObject value : list) {
-                // System.out.println(value);
                 if (processDoc(value)) {
 
                     int timeSlot = Integer.parseInt(value.get("TIMESLOT").toString());
                     String startTollPointID = value.get("UT_TRIP_START_TOLL_POINT_ID").toString();
                     long dateTime = Long.parseLong(value.get("TIMESLOT_DATE").toString());
                     LocalDate date = new LocalDate(dateTime);
-                    // System.out.println(date + " | " + date.dayOfWeek().getAsText() + " | " + date.dayOfWeek().get());
                     int dayOfWeek = date.dayOfWeek().get() - 1;
 
                     AverageKey key = new AverageKey(timeSlot, startTollPointID, dayOfWeek);
@@ -70,7 +68,6 @@ public class AvgByDay {
             for (Map.Entry<AverageKey, AverageValueObject> entry : map.entrySet()) {
                 AverageKey key = entry.getKey();
                 AverageValueObject vo = entry.getValue();
-                // System.out.println(key.toString() + vo.toString());
                 out.println(key.toString() + vo.toString());
                 persistDataToMongoDb(key, vo, db);
             }
@@ -84,30 +81,27 @@ public class AvgByDay {
 
     public static boolean processDoc(DBObject value) {
         // @formatter:off
-        boolean result = value.get("UT_TRIP_START_TOLL_POINT_ID") != null && !value.get("UT_TRIP_START_TOLL_POINT_ID").toString().isEmpty();
+        return  (value.get("UT_TRIP_START_TOLL_POINT_ID") != null && !value.get("UT_TRIP_START_TOLL_POINT_ID").toString().isEmpty());
         // @formatter:on
-        if (!result) {
-            return result;
-        }
+    }
 
+    public static boolean processSpeed(DBObject value) {
         Object obj = value.get("SPEED");
-        result = obj == null ? false : !obj.toString().isEmpty();
+        boolean result = obj == null ? false : !obj.toString().isEmpty();
         if (!result) {
             return result;
         }
         Double doubleValue = Double.parseDouble(obj.toString());
-        result = doubleValue > 0.0;
+        return (doubleValue > 0.0);
+    }
+
+    public static boolean processPrice(DBObject value) {
+        Object obj = value.get("PRICE");
+        boolean result = obj == null ? false : !obj.toString().isEmpty();
         if (!result) {
             return result;
         }
-
-        obj = value.get("PRICE");
-        result = obj == null ? false : !obj.toString().isEmpty();
-        if (!result) {
-            return result;
-        }
-        doubleValue = Double.parseDouble(obj.toString());
-
+        Double doubleValue = Double.parseDouble(obj.toString());
         return (doubleValue > 0.0);
     }
 
@@ -126,19 +120,37 @@ public class AvgByDay {
         BasicDBObject doc = new BasicDBObject("TIMESLOT", key.getTimeSlot())
                 .append("UT_TRIP_START_TOLL_POINT_ID", key.getTollPoint())
                 .append("DAY_OF_WEEK", key.getDayOfWeek())
-                .append("AVERAGE_SPEED", vo.getSpeed() / vo.getTotalVolume())
-                .append("REVENUE", vo.getPrice())
-                .append("VOLUME", vo.getTotalVolume());
+                .append("AVERAGE_SPEED", vo.getSpeed() / vo.getSpeedCounter())
+                .append("AVERAGE_REVENUE", vo.getPrice() / AMOUNT_OF_DAYS_OF_WEEK)
+                .append("TOTAL_REVENUE", vo.getPrice())
+                .append("AVERAGE_VOLUME", vo.getTotalVolume() / AMOUNT_OF_DAYS_OF_WEEK)
+                .append("TOTAL_VOLUME", vo.getTotalVolume())
+                .append("AMOUNT_OF_DAYS_OF_WEEK", AMOUNT_OF_DAYS_OF_WEEK);
         // @formatter:on
         TARGET_COLLECTION.insert(doc);
     }
 
     private static void updateValueObject(AverageValueObject vo, DBObject dbObject) {
         vo.setTotalVolume(vo.getTotalVolume() + 1);
-        double speed = Double.parseDouble(dbObject.get("SPEED").toString());
-        vo.setSpeed(vo.getSpeed() + speed);
-        double price = Double.parseDouble(dbObject.get("PRICE").toString());
-        vo.setPrice(vo.getPrice() + price);
+        updateSpeed(vo, dbObject);
+
+        updatePrice(vo, dbObject);
+    }
+
+    private static void updateSpeed(AverageValueObject vo, DBObject dbObject) {
+        if (processSpeed(dbObject)) {
+            double speed = Double.parseDouble(dbObject.get("SPEED").toString());
+            vo.setSpeed(vo.getSpeed() + speed);
+            vo.setSpeedCounter(vo.getSpeedCounter() + 1);
+        }
+    }
+
+    private static void updatePrice(AverageValueObject vo, DBObject dbObject) {
+        if (processPrice(dbObject)) {
+            double price = Double.parseDouble(dbObject.get("PRICE").toString());
+            vo.setPrice(vo.getPrice() + price);
+            vo.setPriceCounter(vo.getPriceCounter() + 1);
+        }
     }
 
     private static List<DBObject> getDataFromCASTTRIP(int timeSlot, DB db) {
@@ -150,8 +162,6 @@ public class AvgByDay {
         selectedFields.append("SPEED", 1);
         selectedFields.append("PRICE", 1);
         selectedFields.append("TIMESLOT_DATE", 1);
-
-        // db.INCIDENT.find({ $and: [ {DETECTEDTIME: {$gt: 1383211730000}}, {DETECTEDTIME: {$lt: 1383211750000}}]})
 
         DBCursor cursor = CASTTRIP_COLLECTION.find(query, selectedFields);
 
