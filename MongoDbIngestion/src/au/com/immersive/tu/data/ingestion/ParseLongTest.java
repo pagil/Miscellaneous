@@ -37,6 +37,7 @@ public class ParseLongTest {
         volume /= 13;
         System.out.println("Revenue= " + revenue);
         System.out.println("Volume= " + volume);
+        System.out.println("MAX_VALUE= " + Long.MAX_VALUE);// MAX_VALUE= 9223372036854775807
     }
 
 }
