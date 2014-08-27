@@ -38,6 +38,9 @@ public class ParseLongTest {
         System.out.println("Revenue= " + revenue);
         System.out.println("Volume= " + volume);
         System.out.println("MAX_VALUE= " + Long.MAX_VALUE);// MAX_VALUE= 9223372036854775807
+        Object obj = null;
+        System.out.println("Test " + obj + " good!");
+        System.out.printf("Test %s good!\n", obj);
     }
 
 }
