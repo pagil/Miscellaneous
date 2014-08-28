@@ -1,6 +1,10 @@
 package simple.test;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
 import org.joda.time.DateTime;
@@ -12,10 +16,9 @@ import org.joda.time.format.DateTimeFormatter;
  */
 public class App {
 
-
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         System.out.println("-Duser.timezone = " + System.getProperty("user.timezone"));
-        System.out.println("joda time library version: "+(args.length > 0 ? args[0] : "undefined"));
+        System.out.println("joda time library version: " + (args.length > 0 ? args[0] : "undefined"));
         DateTime dateTime = new DateTime(1353990300000L);
 
         System.out.println(dateTime);
@@ -34,13 +37,30 @@ public class App {
         System.out.println("jdkDate = " + jdkDate);
         System.out.println("jdkDate = " + simpleDateFormat.format(jdkDate));
 
-        long size=0;
+        TimeZone tz = TimeZone.getTimeZone("Australia/Melbourne");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        sdf.setTimeZone(tz);
+        Date startDate = sdf.parse("30-11-2013");
+        Calendar calendar = GregorianCalendar.getInstance(tz);
+        calendar.setTime(startDate);
+        calendar.add(Calendar.DAY_OF_MONTH, 1);
+        Date endDate = calendar.getTime();
+        System.out.println("Start Time (millis) = " + startDate.getTime());
+        System.out.println("End Time (millis) = " + endDate.getTime());
+
+        String[] tzs = TimeZone.getAvailableIDs();
+        /*
+         * for (String tz : tzs) { System.out.println(tz); }
+         */
+
+        long size = 0;
         System.out.println(size = Runtime.getRuntime().freeMemory());
         Counter theBox = new Counter();
 
-        System.out.println(Runtime.getRuntime().freeMemory()-size);
+        System.out.println(Runtime.getRuntime().freeMemory() - size);
         System.out.println(Runtime.getRuntime().freeMemory());
-        System.out.println(theBox);    }
+        System.out.println(theBox);
+    }
 }
 
 class MysteryBox {
@@ -49,11 +69,9 @@ class MysteryBox {
     protected long z0, z1, z2;
     protected int[] a = new int[280];
 
-
 }
 
-class Counter
-{
+class Counter {
     protected String name;
     protected int count;
 
