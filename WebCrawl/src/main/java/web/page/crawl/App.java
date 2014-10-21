@@ -6,7 +6,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class App {
-    private static int MAX_DEPTH = 10;
+    private static final int MAX_COMPANIES_PAGES = 348;
+    private static int MAX_DEPTH = 200;
 
     public static void main(String[] args) throws Exception {
         String url = "http://www.glassdoor.com.au/Reviews/company-reviews.htm";
@@ -36,20 +37,21 @@ public class App {
         // }
 
         url = "http://www.glassdoor.com.au/Reviews/reviews-SRCH_IP";
-        for (int i = 1; i < 9; i++) {
+        for (int i = 1; i < MAX_COMPANIES_PAGES; i++) {
             document = Jsoup.connect(url + i + ".htm").userAgent("Mozilla").get();
             companies = document.select("a.item.org.emphasizedLink");
             for (Element company : companies) {
                 String companyURL = company.absUrl("href");
                 String companyName = company.text();
-                Document companyPage = Jsoup.connect(companyURL).userAgent("Mozilla").get();
-                Elements reviews = companyPage.select("a.eiCell.cell.reviews");
-                String companyReviewURL = reviews.get(0).absUrl("href");
+                if (companyName.toLowerCase().contains("bank")) {
+                    Document companyPage = Jsoup.connect(companyURL).userAgent("Mozilla").get();
+                    Elements reviews = companyPage.select("a.eiCell.cell.reviews");
+                    String companyReviewURL = reviews.get(0).absUrl("href");
 
-                Document companyReviewPage = Jsoup.connect(companyReviewURL).userAgent("Mozilla").get();
+                    Document companyReviewPage = Jsoup.connect(companyReviewURL).userAgent("Mozilla").get();
 
-                crawlReviewPage(companyName, companyReviewPage, 0);
-
+                    crawlReviewPage(companyName, companyReviewPage, 0);
+                }
             }
         }
 
@@ -67,7 +69,7 @@ public class App {
             // max = max < cons.size() ? cons.size() : max;
             for (int i = 0; i < max; i++) {
                 System.out.print(companyName);
-                System.out.print("|" + date.get(0).text());
+                System.out.print("|" + date.get(i).text());
                 System.out.print("|" + positions.get(i).text());
                 System.out.print("|" + pros.get(i).text());
                 System.out.println("|" + cons.get(i).text());
