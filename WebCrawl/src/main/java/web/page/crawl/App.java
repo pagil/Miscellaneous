@@ -12,6 +12,11 @@ public class App {
     private static final int MAX_COMPANIES_PAGES = 348;
     private static int MAX_DEPTH = 200;
 
+    // Sample command line:
+    // viktor@viktorUVB:~/git/Miscellaneous/WebCrawl/target/classes$ java -Dsun.net.client.defaultReadTimeout=30000
+    // -Dsun.net.client.defaultConnectTimeout=30000 -cp
+    // .:/home/viktor/.m2/repository/org/jsoup/jsoup/1.7.3/jsoup-1.7.3.jar web.page.crawl.App >
+    // ReviewsListOfCompanies.txt
     public static void main(String[] args) throws Exception {
         String url = "http://www.glassdoor.com.au/Reviews/company-reviews.htm";
         Document document = Jsoup.connect(url).userAgent("Mozilla").get();
