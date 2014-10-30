@@ -6,6 +6,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class App {
+    private static final String COMPANIES_LIST_PAGE = "http://www.glassdoor.com.au/Reviews/reviews-SRCH_IP";
     private static final int MAX_COMPANIES_PAGES = 348;
     private static int MAX_DEPTH = 200;
 
@@ -36,9 +37,9 @@ public class App {
         //
         // }
 
-        url = "http://www.glassdoor.com.au/Reviews/reviews-SRCH_IP";
         for (int i = 1; i < MAX_COMPANIES_PAGES; i++) {
-            document = Jsoup.connect(url + i + ".htm").userAgent("Mozilla").get();
+            url = COMPANIES_LIST_PAGE + i + ".htm";
+            document = Jsoup.connect(url).userAgent("Mozilla").get();
             companies = document.select("a.item.org.emphasizedLink");
             for (Element company : companies) {
                 String companyURL = company.absUrl("href");
@@ -50,7 +51,7 @@ public class App {
 
                     Document companyReviewPage = Jsoup.connect(companyReviewURL).userAgent("Mozilla").get();
 
-                    crawlReviewPage(companyName, companyReviewPage, 0);
+                    crawlReviewPage(companyName, companyReviewPage, 0, url, companyReviewURL);
                 }
             }
         }
@@ -58,7 +59,8 @@ public class App {
         System.out.println("Done!");
     }
 
-    private static void crawlReviewPage(String companyName, Document companyReviewPage, int depth) throws Exception {
+    private static void crawlReviewPage(String companyName, Document companyReviewPage, int depth,
+            String companies_page_url, String company_review_page_url) throws Exception {
         if (depth < MAX_DEPTH) {
             Elements positions = companyReviewPage.select("span.authorJobTitle.cell.middle.padHorzSm");
             Elements date = companyReviewPage.select("tt.SL_date.margBot5");
@@ -68,7 +70,9 @@ public class App {
             // max = max < pros.size() ? pros.size() : max;
             // max = max < cons.size() ? cons.size() : max;
             for (int i = 0; i < max; i++) {
-                System.out.print(companyName);
+                System.out.print(companies_page_url);
+                System.out.print("|" + company_review_page_url);
+                System.out.print("|" + companyName);
                 System.out.print("|" + date.get(i).text());
                 System.out.print("|" + positions.get(i).text());
                 System.out.print("|" + pros.get(i).text());
@@ -80,7 +84,8 @@ public class App {
                 if (!link.isEmpty()) {
                     Document nextCompanyReviewPage = Jsoup.connect(link.get(0).absUrl("href")).userAgent("Mozilla")
                             .get();
-                    crawlReviewPage(companyName, nextCompanyReviewPage, ++depth);
+                    crawlReviewPage(companyName, nextCompanyReviewPage, ++depth, companies_page_url, link.get(0)
+                            .absUrl("href"));
                 }
             }
         }
