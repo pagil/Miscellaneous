@@ -5,6 +5,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import web.page.crawl.data.CompaniesOfInterest;
+
 public class App {
     private static final String COMPANIES_LIST_PAGE = "http://www.glassdoor.com.au/Reviews/reviews-SRCH_IP";
     private static final int MAX_COMPANIES_PAGES = 348;
@@ -44,7 +46,7 @@ public class App {
             for (Element company : companies) {
                 String companyURL = company.absUrl("href");
                 String companyName = company.text();
-                if (companyName.toLowerCase().contains("bank")) {
+                if (CompaniesOfInterest.COMPANIES.contains(companyName.toLowerCase())) {
                     Document companyPage = Jsoup.connect(companyURL).userAgent("Mozilla").get();
                     Elements reviews = companyPage.select("a.eiCell.cell.reviews");
                     String companyReviewURL = reviews.get(0).absUrl("href");
