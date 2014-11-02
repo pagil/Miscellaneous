@@ -8,6 +8,7 @@ import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
 import org.joda.time.DateTime;
+import org.joda.time.Days;
 import org.joda.time.format.DateTimeFormatter;
 
 /**
@@ -41,6 +42,7 @@ public class App {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         sdf.setTimeZone(tz);
         Date startDate = sdf.parse("30-11-2013");
+
         Calendar calendar = GregorianCalendar.getInstance(tz);
         calendar.setTime(startDate);
         calendar.add(Calendar.DAY_OF_MONTH, 1);
@@ -60,6 +62,10 @@ public class App {
         System.out.println(Runtime.getRuntime().freeMemory() - size);
         System.out.println(Runtime.getRuntime().freeMemory());
         System.out.println(theBox);
+
+        Days d = Days.daysBetween(new DateTime(startDate), new DateTime(endDate));
+        int days = d.getDays();
+        System.out.println("Number of days between " + startDate + " and " + endDate + ": " + days);
     }
 }
 
