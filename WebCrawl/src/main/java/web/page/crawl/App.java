@@ -19,7 +19,7 @@ public class App {
     // ReviewsListOfCompanies.txt
     public static void main(String[] args) throws Exception {
         String url = "http://www.glassdoor.com.au/Reviews/company-reviews.htm";
-        Document document = Jsoup.connect(url).userAgent("Mozilla").get();
+        Document document = openUrl(url);
 
         // String question = document.select(".row pros").text();
         // System.out.println("Question: " + question);
@@ -46,17 +46,18 @@ public class App {
 
         for (int i = 1; i < MAX_COMPANIES_PAGES; i++) {
             url = COMPANIES_LIST_PAGE + i + ".htm";
-            document = Jsoup.connect(url).userAgent("Mozilla").get();
+            System.out.println(url);
+            document = openUrl(url);
             companies = document.select("a.item.org.emphasizedLink");
             for (Element company : companies) {
                 String companyURL = company.absUrl("href");
                 String companyName = company.text();
                 if (CompaniesOfInterest.COMPANIES.contains(companyName.toLowerCase())) {
-                    Document companyPage = Jsoup.connect(companyURL).userAgent("Mozilla").get();
+                    Document companyPage = openUrl(companyURL);
                     Elements reviews = companyPage.select("a.eiCell.cell.reviews");
                     String companyReviewURL = reviews.get(0).absUrl("href");
 
-                    Document companyReviewPage = Jsoup.connect(companyReviewURL).userAgent("Mozilla").get();
+                    Document companyReviewPage = openUrl(companyReviewURL);
 
                     crawlReviewPage(companyName, companyReviewPage, 0, url, companyReviewURL);
                 }
@@ -89,12 +90,23 @@ public class App {
             if (!next.isEmpty()) {
                 Elements link = next.select("a");
                 if (!link.isEmpty()) {
-                    Document nextCompanyReviewPage = Jsoup.connect(link.get(0).absUrl("href")).userAgent("Mozilla")
-                            .get();
+                    Document nextCompanyReviewPage = openUrl(link.get(0).absUrl("href"));
                     crawlReviewPage(companyName, nextCompanyReviewPage, ++depth, companies_page_url, link.get(0)
                             .absUrl("href"));
                 }
             }
         }
+    }
+
+    private static Document openUrl(String url) {
+        Document document;
+        try {
+            document = Jsoup.connect(url).userAgent("Mozilla").get();
+        } catch (Exception e) {
+            System.err.println("Cannot open URL: " + url);
+            e.printStackTrace(System.err);
+            document = new Document(url);
+        }
+        return document;
     }
 }
