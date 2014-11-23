@@ -11,7 +11,6 @@ public class CompaniesOfInterest {
 
     static {
         COMPANIES = new HashSet<String>();
-        COMPANIES.add("aig");
         COMPANIES.add("aimia");
         COMPANIES.add("amazon");
         COMPANIES.add("aquent");
@@ -20,7 +19,6 @@ public class CompaniesOfInterest {
         COMPANIES.add("bluefin solutions");
         COMPANIES.add("borlas");
         COMPANIES.add("boxfusion consulting");
-        COMPANIES.add("cisco");
         COMPANIES.add("citi recruitment");
         COMPANIES.add("enorth staffing");
         COMPANIES.add("envitia");
@@ -33,21 +31,15 @@ public class CompaniesOfInterest {
         COMPANIES.add("hays it");
         COMPANIES.add("illumination works");
         COMPANIES.add("jurlique");
-        COMPANIES.add("kpmg");
         COMPANIES.add("m&t resources");
         COMPANIES.add("mec");
-        COMPANIES.add("nbn");
         COMPANIES.add("orbium");
-        COMPANIES.add("pra");
-        COMPANIES.add("procter & gamble");
         COMPANIES.add("reed technology");
         COMPANIES.add("rittman mead");
         COMPANIES.add("sapient");
-        COMPANIES.add("sas");
         COMPANIES.add("servian");
         COMPANIES.add("sparq solutions");
         COMPANIES.add("stagecoach");
-        COMPANIES.add("staples");
         COMPANIES.add("tenzing");
         COMPANIES.add("tsg");
         COMPANIES.add("volkerstevin");
