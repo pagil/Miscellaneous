@@ -11,7 +11,6 @@ public class CompaniesOfInterest {
 
     static {
         COMPANIES = new HashSet<String>();
-        COMPANIES.add("aimia");
         COMPANIES.add("amazon");
         COMPANIES.add("aquent");
         COMPANIES.add("asda");
@@ -25,7 +24,6 @@ public class CompaniesOfInterest {
         COMPANIES.add("epam");
         COMPANIES.add("ernst & young");
         COMPANIES.add("essence");
-        COMPANIES.add("facebook");
         COMPANIES.add("gebr. heinemann");
         COMPANIES.add("gsk");
         COMPANIES.add("hays it");

@@ -52,6 +52,7 @@ public class App {
                 for (Element company : companies) {
                     String companyURL = company.absUrl("href");
                     String companyName = company.text();
+                    System.err.println("Company name = " + companyName);
                     if (like(companyName)) {
                         Document companyPage = openUrl(companyURL);
                         if (companyPage != null) {
@@ -70,7 +71,7 @@ public class App {
         System.err.println("Done!");
     }
 
-    private static void crawlReviewPage(String companyName, Document companyReviewPage, int depth,
+    public static void crawlReviewPage(String companyName, Document companyReviewPage, int depth,
             String companies_page_url, String company_review_page_url) throws Exception {
         if (companyReviewPage != null && depth < MAX_DEPTH) {
             Elements positions = companyReviewPage.select("span.authorJobTitle.cell.middle.padHorzSm");
@@ -101,7 +102,7 @@ public class App {
         }
     }
 
-    private static Document openUrl(String url) {
+    public static Document openUrl(String url) {
         Document document = null;
         try {
             document = Jsoup.connect(url).userAgent("Mozilla").get();
@@ -112,10 +113,10 @@ public class App {
         return document;
     }
 
-    private static boolean like(String companyName) {
+    public static boolean like(String companyName) {
         for (String cn : CompaniesOfInterest.COMPANIES) {
             if (companyName.toLowerCase().contains(cn.toLowerCase())) {
-                System.err.println("Found company: " + companyName);
+                System.err.println("Found company: " + companyName + " ~ like ~ " + cn);
                 return true;
             }
         }
